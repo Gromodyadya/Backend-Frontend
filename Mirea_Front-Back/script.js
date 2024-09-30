@@ -1,3 +1,34 @@
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Обработка таблиц посещаемости
+    const tables = document.querySelectorAll('table');
+    
+    tables.forEach(table => {
+        table.addEventListener('click', function(e) {
+            if (e.target.classList.contains('attendance') || e.target.classList.contains('completion')) {
+                e.target.textContent = e.target.textContent === '✓' ? '' : '✓';
+            }
+        });
+    });
+
+    // Инициализация Яндекс карты
+    if (typeof ymaps !== 'undefined') {
+        ymaps.ready(init);
+        function init(){
+            var myMap = new ymaps.Map("map", {
+                center: [55.669986, 37.480409], 
+                zoom: 15
+            });
+            
+            var myPlacemark = new ymaps.Placemark([55.669986, 37.480409], {
+                hintContent: 'РТУ МИРЭА',
+                balloonContent: 'РТУ МИРЭА, проспект Вернадского, д. 78'
+            });
+            
+            myMap.geoObjects.add(myPlacemark);
+        }
+    }
+});
 // Открытие модального окна с установкой типа услуги
 function openModal(serviceType) {
     const modal = document.getElementById('modal');

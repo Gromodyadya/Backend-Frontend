@@ -245,5 +245,37 @@ footer {
     background-color: #000000;
     transform: scale(1.05);
   }
+/* Стили для таблиц */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
 
-  
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.attendance, .completion {
+  cursor: pointer;
+  text-align: center;
+  width: 80px; 
+}
+
+/* Styles for video container */
+.video-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.video-container video {
+  max-width: 100%;
+  height: auto;
+}
